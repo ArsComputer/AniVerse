@@ -20,6 +20,8 @@ html {
   --primary-color: #2e51a2;
   --secondary-color: #4f74c8;
 
+  --btn-active-color: #4767b3;
+
   --card-color: #ffffff;
 
   --header-color: #1f2937;
@@ -30,6 +32,7 @@ html {
   --accent-color: #f17300;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --border-color: #e5e7eb;
+  --half-transparent-color: rgba(255, 255, 255, 0.6);
 
   /* Font Size */
   --font-logo: clamp(1.6rem, 2vw + 4px, 2rem);
@@ -50,6 +53,9 @@ html {
 
   /* Border Radius */
   --radius: 1rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 2rem;
+  --circle: 50%;
 }
 
 /* GLOBAL ELEMENT */
@@ -139,9 +145,32 @@ header {
 }
 
 .input-cari {
+  flex: 1;
   padding: var(--gap-sz-xs-r);
   min-width: 5rem;
-  flex: 1;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+.btn-cari {
+  width: 5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 2px var(--shadow-color);
+  background-color: var(--secondary-color);
+  color: var(--card-color);
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-0.2rem) scale(1.04);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background-color: var(--btn-active-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+  }
 }
 
 .judul-container {
@@ -194,6 +223,15 @@ header {
   right: 0;
   left: 0;
 }
+
+.icon {
+  border-radius: var(--circle);
+
+  /* &:hover {
+
+  } */
+}
+
 
 /* RESPONSIVE BREAKPOINT */
 @media (min-width: 425px) {
