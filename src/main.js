@@ -34,12 +34,9 @@ document.querySelector("#app").innerHTML = `
     </div>
 
     <div class="daftar-anime" id="daftar-anime">
-      <span class="muted"
-        style="
-          text-align: center;
-          position: absolute;
-          inset: 1.6rem 0 0;
-        ">Cari Anime Favoritmu di Kotak pencarian</span>
+      <div class="muted state"
+        >Cari Anime Favoritmu di Kotak pencarian
+      </div>
       <!-- Daftar anime akan ditampilkan secara dinamis di sini -->
     </div>
   </div>
@@ -57,7 +54,7 @@ let controller;
 async function searchAnime(keyword) {
   if (!keyword || keyword.length <= 2) return;
 
-  createLoadingState(daftarAnimeContainer, 'muted', 'loading');
+  createLoadingState(daftarAnimeContainer, 'loading', 'muted', 'state');
 
   if (controller) {
     controller.abort();
@@ -73,7 +70,7 @@ async function searchAnime(keyword) {
     daftarAnimeContainer.innerHTML = "";
 
     if (animeList.data.length === 0) {
-      createEmptyState(daftarAnimeContainer, 'muted');
+      createEmptyState(daftarAnimeContainer, 'muted', 'state');
     }
 
     // Display each anime card
@@ -85,7 +82,7 @@ async function searchAnime(keyword) {
     if (error.name !== "AbortError") return;
 
     console.error("Gagal:", error);
-    createErrorState(error.message, daftarAnimeContainer, 'muted');
+    createErrorState(error.message, daftarAnimeContainer, 'muted', 'state');
   }
 }
 
