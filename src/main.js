@@ -34,7 +34,12 @@ document.querySelector("#app").innerHTML = `
     </div>
 
     <div class="daftar-anime" id="daftar-anime">
-      <span class="muted" style="margin: auto">Cari Anime Favoritmu di Kotak pencarian</span>
+      <span class="muted"
+        style="
+          text-align: center;
+          position: absolute;
+          inset: 1.6rem 0 0;
+        ">Cari Anime Favoritmu di Kotak pencarian</span>
       <!-- Daftar anime akan ditampilkan secara dinamis di sini -->
     </div>
   </div>

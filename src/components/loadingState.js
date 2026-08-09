@@ -2,9 +2,11 @@ export function createLoadingState(container, ...className) {
   const loadingElement = `
   <p class="${className.join(" ")}"
     style="
-      margin: auto;
+      text-align: center;
+      position: absolute;
+      inset: 1.6rem 0 0;
     ">Loading...</p>
   `;
-  
+
   container.innerHTML = loadingElement;
 }
