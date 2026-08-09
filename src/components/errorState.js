@@ -1,4 +1,6 @@
-export function createErrorState(errMessage, className, container) {
-  const errMessageElement = `<p class="${className}">Terjadi Error: ${errMessage}</p>`;
+export function createErrorState(errMessage, container, ...className) {
+  const errMessageElement = `
+  <p class="${className.join(" ")}">Terjadi Error: ${errMessage}</p>`;
+  
   container.innerHTML = errMessageElement;
 }

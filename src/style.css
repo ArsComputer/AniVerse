@@ -154,6 +154,7 @@ header {
 }
 
 .anime-card {
+  border: 1px solid black;
   flex: 1;
   /* height: 160px; */
   display: flex;
@@ -180,19 +181,23 @@ header {
 
 
 /* UTILITY */
-.loading {
-  color: var(--muted-color);
-}
-
 .muted {
   color: var(--muted-color);
 }
 
 
 /* RESPONSIVE BREAKPOINT */
-@media (min-width: 768px) {
+@media (min-width: 425px) {
+  .daftar-anime {
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+
   .anime-card {
-    flex: 1 1 calc(900px / 3 - var(--gap-sz-sm));
+    flex: 0 0 calc(900px / 2 - var(--gap-sz-sm));
     max-width: calc(900px / 3 - var(--gap-sz-sm));
     height: auto;
     flex-direction: column;

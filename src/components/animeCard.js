@@ -1,4 +1,4 @@
-export function createAnimeCard(anime, className, container) {
+export function createAnimeCard(anime, container, ...className) {
   const {
     title,
     images: {

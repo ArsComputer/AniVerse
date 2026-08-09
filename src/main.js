@@ -4,6 +4,7 @@ import { debounce } from "./utils/debounce.js";
 import { createAnimeCard } from "./components/animeCard.js";
 import { createErrorState } from "./components/errorState.js";
 import { createLoadingState } from "./components/loadingState.js";
+import { createEmptyState } from "./components/emptyState.js";
 
 document.querySelector("#app").innerHTML = `
 <header>
@@ -51,7 +52,7 @@ let controller;
 async function searchAnime(keyword) {
   if (!keyword || keyword.length <= 2) return;
 
-  createLoadingState('loading', daftarAnimeContainer);
+  createLoadingState(daftarAnimeContainer, 'muted', 'loading');
 
   if (controller) {
     controller.abort();
@@ -67,19 +68,19 @@ async function searchAnime(keyword) {
     daftarAnimeContainer.innerHTML = "";
 
     if (animeList.data.length === 0) {
-      createErrorState('fail-result', daftarAnimeContainer);
+      createEmptyState(daftarAnimeContainer, 'muted');
     }
 
     // Display each anime card
     animeList.data.forEach((anime) => {
-      createAnimeCard(anime, 'anime-card', daftarAnimeContainer);
+      createAnimeCard(anime, daftarAnimeContainer, 'anime-card');
     });
 
   } catch (error) {
     if (error.name !== "AbortError") return;
 
     console.error("Gagal:", error);
-    createErrorState(error.message, 'fail-result', daftarAnimeContainer);
+    createErrorState(error.message, daftarAnimeContainer, 'muted');
   }
 }
 
