@@ -8,8 +8,10 @@ export function createAnimeCard(anime, className, container) {
 
   const animeCard = `
     <div class="${className}">
+      <div class="${className}__image">
         <img src="${image_url}" alt="${title}" />
-        <h2>${title}</h2>
+      </div>
+      <span class="${className}__title">${title}</span>
     </div>
     `;
 

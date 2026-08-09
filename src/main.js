@@ -9,6 +9,10 @@ document.querySelector("#app").innerHTML = `
 <header>
   <nav class="navbar">
     <div class="logo">AniVerse</div>
+    
+    .
+
+    <div class="cari-container">
     <form class="form-cari" role="search">
       <input
         type="text"
@@ -18,6 +22,7 @@ document.querySelector("#app").innerHTML = `
       />
       <button type="submit" class="btn-cari" id="btn-cari">Cari</button>
     </form>
+    </div>
   </nav>
 </header>
 
@@ -28,6 +33,7 @@ document.querySelector("#app").innerHTML = `
     </div>
 
     <div class="daftar-anime" id="daftar-anime">
+      <span class="muted" style="margin: auto">Cari Anime Favoritmu di Kotak pencarian</span>
       <!-- Daftar anime akan ditampilkan secara dinamis di sini -->
     </div>
   </div>
@@ -43,7 +49,7 @@ const cariDebounce = debounce(searchAnime, 500);
 let controller;
 
 async function searchAnime(keyword) {
-  if (!keyword || keyword.length < 2) return;
+  if (!keyword || keyword.length <= 2) return;
 
   createLoadingState('loading', daftarAnimeContainer);
 

@@ -1,0 +1,200 @@
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+
+/* VARIABEL */
+:root {
+  /* Warna */
+  --base-color: #F6F7F9;
+  
+  --logo-color: #f1f1f1;
+  --primary-color: #2E51A2;
+  --secondary-color: #4F74C8;
+
+  --card-color: #FFFFFF;
+
+  --header-color: #1F2937;
+  --title-color: #387be7;
+  --text-color: #4B5563;
+  --muted-color: #c4c4c4;
+
+  --accent-color: #F17300;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --border-color: #E5E7EB;
+
+
+  /* Font Size */
+  --font-logo: clamp(1.6rem, 2vw + 4px, 2rem);
+
+  --font-sz-xl: clamp(3.2rem, 4vw + 4px, 4.8rem);
+  --font-sz-lg: clamp(3.2rem, 4vw + 2px, 4rem);
+  --font-sz-md: clamp(2.4rem, 2vw, 3.2rem);
+  --font-sz-sm: clamp(1.2rem, 2vw, 1.6rem);
+
+  /* Gap Size */
+  --gap-sz-md-r: clamp(1.6rem, 5vw + 2px, 3rem);
+  --gap-sz-sm-r: clamp(0.8rem, 2vw, 1.6rem);
+  --gap-sz-xs-r: clamp(0.4rem, 1vw, 0.8rem);
+
+  --gap-sz-md: 3rem;
+  --gap-sz-sm: 1.6rem;
+  --gap-sz-xs: 0.8rem;
+}
+
+
+/* GLOBAL ELEMENT */
+body {
+  font-size: var(--font-sz-sm);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--base-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p, span {
+  font-size: var(--font-sz-sm);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+}
+
+h2 {
+  font-size: var(--font-sz-lg);
+}
+
+h3 {
+  font-size: var(--font-sz-md);
+}
+
+h4 {
+  font-size: var(--font-sz-sm);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* LAYOUT */
+.navbar {
+  padding: 1rem var(--gap-sz-md-r);
+  /* background-color: #f7f7f7; */
+  background-color: var(--primary-color);
+  /* border-bottom: 1px solid var(--neutral-color); */
+  /* box-shadow: 0 2px 10px var(--shadow-color); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-sz-sm-r);
+  position: sticky;
+  inset: 0;
+  z-index: 999;
+}
+
+.form-cari {
+  /* accent-color: var(--accent-color); */
+  width: clamp(20rem, 50vw + 10px, 30rem);
+  display: flex;
+  gap: var(--gap-sz-xs);
+}
+
+.anime-container {
+  background-color: var(--card-color);
+  max-width: 900px;
+  min-height: 80vh;
+  margin: var(--gap-sz-md) auto;
+}
+
+.daftar-anime {
+  padding: var(--gap-sz-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sz-sm);
+}
+
+
+/* CHILDREN */
+.logo {
+  font-size: var(--font-logo);
+  font-weight: bold;
+  color: var(--logo-color);
+}
+
+.input-cari {
+  padding: var(--gap-sz-xs-r);
+  min-width: 5rem;
+  flex: 1;
+}
+
+.judul-container {
+  border-bottom: 2px solid var(--border-color);
+  padding: var(--gap-sz-xs) var(--gap-sz-sm);
+}
+
+.anime-card {
+  flex: 1;
+  /* height: 160px; */
+  display: flex;
+  gap: var(--gap-sz-sm);
+}
+
+.anime-card__image {
+  border: 1px solid black;
+  width: 100px;
+  aspect-ratio: 2 / 3;
+  height: 100%;
+}
+
+.anime-card__image img {
+  /* width: 100%; */
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.anime-card__title {
+  border: 1px solid black;
+  color: var(--title-color);
+}
+
+
+/* UTILITY */
+.loading {
+  color: var(--muted-color);
+}
+
+.muted {
+  color: var(--muted-color);
+}
+
+
+/* RESPONSIVE BREAKPOINT */
+@media (min-width: 768px) {
+  .anime-card {
+    flex: 1 1 calc(900px / 3 - var(--gap-sz-sm));
+    max-width: calc(900px / 3 - var(--gap-sz-sm));
+    height: auto;
+    flex-direction: column;
+  }
+}
