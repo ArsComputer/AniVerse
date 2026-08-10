@@ -56,6 +56,9 @@ html {
   --radius-sm: 0.4rem;
   --radius-md: 2rem;
   --circle: 50%;
+
+  /* Breakpoint */
+  --laptop: 1024px;
 }
 
 /* GLOBAL ELEMENT */
@@ -107,13 +110,15 @@ header {
 .navbar {
   padding: 1rem var(--gap-sz-md-r);
   background-color: var(--primary-color);
+}
+
+.navbar-wrapper {
+  max-width: var(--laptop);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--gap-sz-sm-r);
-  position: sticky;
-  inset: 0;
-  z-index: 999;
 }
 
 .cari-container {
