@@ -77,7 +77,8 @@ async function searchAnime(keyword) {
     daftarAnimeContainer.innerHTML = "";
 
     if (animeList.data.length === 0) {
-      createEmptyState(daftarAnimeContainer, 'muted', 'state');
+      createEmptyState(daftarAnimeContainer, keyword, 'muted', 'state');
+      return;
     }
 
     // Display each anime card
