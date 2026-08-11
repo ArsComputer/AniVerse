@@ -110,4 +110,4 @@ const cariWrapper = document.querySelector('.cari-wrapper');
 menuCari.addEventListener('click', () => {
   // cariWrapper.style.display = 'flex';
   cariWrapper.classList.toggle('cari-open');
-})
+});
