@@ -5,6 +5,7 @@ import { createAnimeCard } from "./components/animeCard.js";
 import { createErrorState } from "./components/errorState.js";
 import { createLoadingState } from "./components/loadingState.js";
 import { createEmptyState } from "./components/emptyState.js";
+import { btnDelay } from "./utils/buttonDelay.js";
 
 document.querySelector("#app").innerHTML = `
 <header>
@@ -61,6 +62,9 @@ let controller;
 async function searchAnime(keyword) {
   if (!keyword || keyword.length <= 2) return;
 
+  const btnController = btnDelay(btnCari, 10000);
+  btnController.setDelay();
+
   createLoadingState(daftarAnimeContainer, 'loading', 'muted', 'state');
 
   if (controller) {
@@ -73,7 +77,6 @@ async function searchAnime(keyword) {
     const animeList = await getAnime(keyword, controller.signal);
     console.log(animeList.data)
 
-    // Clear the container before adding new results
     daftarAnimeContainer.innerHTML = "";
 
     if (animeList.data.length === 0) {
@@ -81,7 +84,6 @@ async function searchAnime(keyword) {
       return;
     }
 
-    // Display each anime card
     animeList.data.forEach((anime) => {
       createAnimeCard(anime, daftarAnimeContainer, 'anime-card');
     });
@@ -91,6 +93,8 @@ async function searchAnime(keyword) {
 
     console.error("Gagal:", error);
     createErrorState(error.message, daftarAnimeContainer, "muted", "state");
+  } finally {
+    btnController.clearDelay();
   }
 }
 
@@ -108,6 +112,5 @@ const menuCari = document.getElementById('menu-cari');
 const cariWrapper = document.querySelector('.cari-wrapper');
 
 menuCari.addEventListener('click', () => {
-  // cariWrapper.style.display = 'flex';
   cariWrapper.classList.toggle('cari-open');
 });
