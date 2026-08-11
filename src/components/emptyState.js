@@ -1,11 +1,18 @@
 export function createEmptyState(container, keyword, ...className) {
-  const emptyStateElement = `
-    <div class="${className.join(" ")}"
-      ><p>Anime &quot;${keyword}&quot; Tidak Ditemukan :(</p>
-      <br>
-      <p>Coba periksa ejaan atau gunakan kata kunci lain</p>
-    </div>
+  const emptyStateElement = document.createElement('div');
+  const pDetail = document.createElement('p');
+
+  emptyStateElement.classList.add(...className);
+
+  const emptyStateDetails = `
+    <br>
+    <p>Coba periksa ejaan atau gunakan kata kunci lain</p>
   `;
 
-  container.innerHTML = emptyStateElement;
+  pDetail.textContent = `Anime "${keyword}" Tidak Ditemukan :(`;
+
+  emptyStateElement.appendChild(pDetail);
+  emptyStateElement.insertAdjacentHTML('beforeend', emptyStateDetails);
+
+  container.appendChild(emptyStateElement);
 }
