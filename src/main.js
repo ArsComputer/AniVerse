@@ -96,12 +96,12 @@ async function searchAnime(keyword) {
 
 inputCari.addEventListener('input', (e) => {
   e.preventDefault();
-  cariDebounce(inputCari.value.trim());
+  cariDebounce.setDebounce(inputCari.value.trim());
 });
 
 btnCari.addEventListener('click', (e) => {
   e.preventDefault();
-  searchAnime(inputCari.value.trim());
+  cariDebounce.cancelDebounce(inputCari.value.trim());
 });
 
 const menuCari = document.getElementById('menu-cari');
