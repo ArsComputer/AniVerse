@@ -51,27 +51,30 @@ document.querySelector("#app").innerHTML = `
 </main>
 `;
 
-const inputCari = document.querySelector(".input-cari");
-const btnCari = document.querySelector(".btn-cari");
+const formCari = document.querySelector(".form-cari");
+const inputCari = document.querySelector("#input-cari");
+const btnCari = document.querySelector("#btn-cari");
 
 const daftarAnimeContainer = document.querySelector("#daftar-anime");
 
 const cariDebounce = debounce(searchAnime, 500);
-let controller;
+const btnController = btnDelay(btnCari, 10000);
+
+let currentController;
 
 async function searchAnime(keyword) {
   if (!keyword || keyword.length <= 2) return;
 
-  const btnController = btnDelay(btnCari, 10000);
-  btnController.setDelay();
+  if (currentController) {
+    currentController.abort();
+  }
 
   createLoadingState(daftarAnimeContainer, 'loading', 'muted', 'state');
 
-  if (controller) {
-    controller.abort();
-  }
+  btnController.setDelay();
 
-  controller = new AbortController();
+  const controller = new AbortController();
+  currentController = controller;
 
   try {
     const animeList = await getAnime(keyword, controller.signal);
@@ -94,6 +97,7 @@ async function searchAnime(keyword) {
     console.error("Gagal:", error);
     createErrorState(error.message, daftarAnimeContainer, "muted", "state");
   } finally {
+    if (currentController === controller)
     btnController.clearDelay();
   }
 }
@@ -103,7 +107,7 @@ inputCari.addEventListener('input', (e) => {
   cariDebounce.setDebounce(inputCari.value.trim());
 });
 
-btnCari.addEventListener('click', (e) => {
+formCari.addEventListener('submit', (e) => {
   e.preventDefault();
   cariDebounce.cancelDebounce(inputCari.value.trim());
 });

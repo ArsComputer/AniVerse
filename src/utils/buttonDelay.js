@@ -3,6 +3,8 @@ export function btnDelay(target, delay = 1000) {
 
   return {
     setDelay() {
+      clearTimeout(timer);
+
       target.disabled = true;
 
       timer = setTimeout(() => target.disabled = false, delay);
@@ -10,7 +12,7 @@ export function btnDelay(target, delay = 1000) {
 
     clearDelay() {
       clearTimeout(timer);
-      
+
       target.disabled = false;
     }
   }
