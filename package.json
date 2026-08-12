@@ -2,13 +2,17 @@
   "name": "aniverse",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://ArsComputer.github.io/AniVerse/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^8.2.0"
   }
 }
