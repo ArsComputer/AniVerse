@@ -16,7 +16,7 @@ export function createAnimeCard(anime, container, ...className) {
         <span class="${className[0]}__title">${title}</span>
       </div>
     </div>
-    `;
+  `;
 
   container.insertAdjacentHTML("beforeend", animeCard);
 }
