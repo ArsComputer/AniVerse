@@ -106,6 +106,7 @@ async function searchAnime(keyword) {
 }
 
 router.init();
+router.navigateTo(router.getRoute());
 
 inputCari.addEventListener('input', (e) => {
   e.preventDefault();
