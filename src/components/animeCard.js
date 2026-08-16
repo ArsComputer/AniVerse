@@ -1,5 +1,6 @@
 export function createAnimeCard(anime, container, ...className) {
   const {
+    mal_id,
     title,
     images: {
       webp: { image_url },
@@ -7,7 +8,7 @@ export function createAnimeCard(anime, container, ...className) {
   } = anime;
 
   const animeCard = `
-    <div class="${className.join(" ")}">
+    <a class="${className.join(" ")}" href="/AniVerse/anime/${mal_id}">
       <div class="${className[0]}__image">
         <img src="${image_url}" alt="${title}" />
       </div>
@@ -15,7 +16,7 @@ export function createAnimeCard(anime, container, ...className) {
       <div class="${className[0]}__details">
         <span class="${className[0]}__title">${title}</span>
       </div>
-    </div>
+    </a>
   `;
 
   container.insertAdjacentHTML("beforeend", animeCard);

@@ -229,6 +229,7 @@ header {
 .anime-card {
   /* border: 1px solid black; */
   flex: 1;
+  text-decoration: none;
   border-radius: var(--radius);
   border-top: 2px solid var(--card-color);
   background-color: var(--card-color);
