@@ -68,6 +68,7 @@ html {
 
   /* Breakpoint */
   --laptop: 1024px;
+  --tablet: 768px;
 }
 
 /* GLOBAL ELEMENT */
@@ -163,13 +164,15 @@ header {
 }
 
 .anime-container {
-  max-width: 900px;
+  max-width: var(--tablet);
   min-height: 80vh;
   margin: var(--gap-sz-md) auto;
 }
 
 .daftar-anime {
   padding: var(--gap-sz-sm);
+  /* background-color: var(--card-color); */
+  /* box-shadow: 0 2px 2px var(--shadow-color); */
   display: flex;
   flex-direction: column;
   gap: var(--gap-sz-sm);
@@ -230,12 +233,12 @@ header {
   /* border: 1px solid black; */
   flex: 1;
   text-decoration: none;
-  border-radius: var(--radius);
-  border-top: 2px solid var(--card-color);
+  /* border-radius: var(--radius); */
+  /* border-top: 2px solid var(--card-color); */
   background-color: var(--card-color);
   box-shadow: 0 2px 2px var(--shadow-color);
   display: flex;
-  gap: var(--gap-sz-sm);
+  /* gap: var(--gap-sz-sm); */
   overflow: hidden;
 }
 
@@ -248,7 +251,7 @@ header {
   background-color: var(--base-color);
   aspect-ratio: 2 / 3;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .anime-card__details {

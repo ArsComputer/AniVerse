@@ -1,3 +1,5 @@
+import { truncate } from "../utils/truncate.js";
+
 export function createAnimeCard(anime, container, ...className) {
   const {
     mal_id,
@@ -14,7 +16,7 @@ export function createAnimeCard(anime, container, ...className) {
       </div>
 
       <div class="${className[0]}__details">
-        <span class="${className[0]}__title">${title}</span>
+        <span class="${className[0]}__title">${truncate(title)}</span>
       </div>
     </a>
   `;
