@@ -6,6 +6,7 @@ import { createErrorState } from "./components/errorState.js";
 import { createLoadingState } from "./components/loadingState.js";
 import { createEmptyState } from "./components/emptyState.js";
 import { btnDelay } from "./utils/buttonDelay.js";
+import { createRouter } from "./router/router.js";
 
 document.querySelector("#app").innerHTML = `
 <header>
@@ -35,7 +36,7 @@ document.querySelector("#app").innerHTML = `
   </nav>
 </header>
 
-<main>
+<main id='main'>
   <div class="anime-container">
     <div class="judul-container">
       <h3>Hasil Pencarian</h3>
@@ -50,6 +51,8 @@ document.querySelector("#app").innerHTML = `
   </div>
 </main>
 `;
+
+const router = createRouter(document.querySelector("#main"));
 
 const formCari = document.querySelector(".form-cari");
 const inputCari = document.querySelector("#input-cari");
@@ -101,6 +104,8 @@ async function searchAnime(keyword) {
     btnController.clearDelay();
   }
 }
+
+router.init();
 
 inputCari.addEventListener('input', (e) => {
   e.preventDefault();
