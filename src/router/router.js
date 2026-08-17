@@ -1,3 +1,5 @@
+import { renderRouter } from "../pages/renderRouter.js";
+
 let currRoute = window.location.pathname;
 
 export function createRouter(container = document.querySelector('main')) {
@@ -26,13 +28,14 @@ export function createRouter(container = document.querySelector('main')) {
     getRoute(pathname = window.location.pathname) {
       const parts = pathname.split('/');
 
+      console.log(parts)
       if (parts[2] === 'anime' && parts[3]) return {
         type: 'animeDetail',
         id: parts[3],
         targetUrl: pathname,
       }
 
-      if (parts[2] === 'AniVerse') return {
+      if (parts[1] === 'AniVerse' && !parts[2]) return {
         type: 'home',
         targetUrl: pathname,
       }
@@ -52,6 +55,7 @@ export function createRouter(container = document.querySelector('main')) {
         history.pushState({}, '', targetUrl);
 
       console.log('saat ini berada di', currRoute);
+      renderRouter(route, container);
     }
   }
 }
