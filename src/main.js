@@ -12,7 +12,7 @@ document.querySelector("#app").innerHTML = `
 <header>
   <nav class="navbar">
     <div class="navbar-wrapper">
-      <div class="logo">AniVerse</div>
+      <h1 class="logo">AniVerse</h1>
 
       <div class="cari-container">
         <label for="input-cari" class="icon" id="menu-cari">

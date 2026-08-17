@@ -2,7 +2,7 @@ export default function homepage() {
   return `
     <div class="anime-container">
       <div class="judul-container">
-        <h3>Hasil Pencarian</h3>
+        <h2>Hasil Pencarian</h2>
       </div>
   
       <div class="daftar-anime" id="daftar-anime">

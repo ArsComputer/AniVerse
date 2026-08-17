@@ -28,10 +28,10 @@ export function createRouter(container = document.querySelector('main')) {
     getRoute(pathname = window.location.pathname) {
       const parts = pathname.split('/');
 
-      console.log(parts)
+      // console.log(parts)
       if (parts[2] === 'anime' && parts[3]) return {
         type: 'animeDetail',
-        id: parts[3],
+        id: +parts[3],
         targetUrl: pathname,
       }
 

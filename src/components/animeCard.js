@@ -16,7 +16,7 @@ export function createAnimeCard(anime, container, ...className) {
       </div>
 
       <div class="${className[0]}__details">
-        <span class="${className[0]}__title">${truncate(title)}</span>
+        <h3 class="${className[0]}__title">${truncate(title)}</h3>
       </div>
     </a>
   `;
