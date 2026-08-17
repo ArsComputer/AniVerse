@@ -41,6 +41,9 @@ document.querySelector("#app").innerHTML = `
 
 const router = createRouter(document.querySelector("#main"));
 
+router.init();
+router.navigateTo(router.getRoute());
+
 const formCari = document.querySelector(".form-cari");
 const inputCari = document.querySelector("#input-cari");
 const btnCari = document.querySelector("#btn-cari");
@@ -91,9 +94,6 @@ async function searchAnime(keyword) {
     btnController.clearDelay();
   }
 }
-
-router.init();
-router.navigateTo(router.getRoute());
 
 inputCari.addEventListener('input', (e) => {
   e.preventDefault();

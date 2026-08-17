@@ -1,4 +1,5 @@
 import homepage from "./homePage.js";
+import buildAnimeDetail from "./animeDetailPage.js"
 import notfoundPage from "./notfoundPage.js";
 
 export function renderRouter(route, container) {
@@ -7,7 +8,7 @@ export function renderRouter(route, container) {
       container.innerHTML = homepage();
       break;
     case "animeDetail":
-      container.innerHTML = "<h1>Anime detail nih</h1>";
+      container.innerHTML = buildAnimeDetail(route.id);
       break;
     case 'notfound':
     default:

@@ -1,4 +1,4 @@
-export default function () {
+export default function homepage() {
   return `
     <div class="anime-container">
       <div class="judul-container">

@@ -1,4 +1,4 @@
-export default function () {
+export default function notfoundPage() {
   return `
     <div style='
       margin: 4rem auto;
