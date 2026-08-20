@@ -178,6 +178,11 @@ header {
   position: relative;
 }
 
+.detail-container {
+  padding: var(--gap-sz-sm);
+  background-color: var(--card-color);
+}
+
 /* CHILDREN */
 .logo {
   font-size: var(--font-logo);

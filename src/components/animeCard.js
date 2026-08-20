@@ -4,6 +4,7 @@ export function createAnimeCard(anime, container, ...className) {
   const {
     mal_id,
     title,
+    name,
     images: {
       webp: { image_url },
     },
@@ -12,11 +13,11 @@ export function createAnimeCard(anime, container, ...className) {
   const animeCard = `
     <a class="${className.join(" ")}" href="/AniVerse/anime/${mal_id}">
       <div class="${className[0]}__image">
-        <img src="${image_url}" alt="${title}" />
+        <img src="${image_url}" alt="${title || name}" />
       </div>
 
       <div class="${className[0]}__details">
-        <h3 class="${className[0]}__title">${truncate(title)}</h3>
+        <h3 class="${className[0]}__title">${truncate(title || name)}</h3>
       </div>
     </a>
   `;

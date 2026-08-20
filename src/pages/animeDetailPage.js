@@ -1,10 +1,61 @@
 import { getAnimeDetailById } from "../api/animeDetailById.js";
 
 export default async function buildAnimeDetail(id) {
-  console.log(await getAnimeDetailById(id));
+  const animeData = await getAnimeDetailById(id);
+
+  const {
+    title,
+    score,
+    status,
+    episodes,
+    type,
+    studios,
+    synopsis,
+    relations,
+    images: {
+      webp: {
+        image_url
+      }
+    }
+  } = animeData;
+
+  const animeStudio = studios.map((studio) => studio.name);
+  const animeRelations = relations.map((relation) => {})
+
+  console.log(animeData);
+  // console.log(animeStudio)
+
   return `
-  <div>
-  <h2>Detail Anime ${id}</h2>
+  <div class="anime-container">
+    <div class="judul-container">
+      <h2>Detail Anime ${id}</h2>
+    </div>
+
+    <div class="detail-container">
+      <div class="detail-head">
+        <div class="detail__image">
+          <img src="${image_url}">
+        </div>
+
+        <div class="detail__info">
+          <h2>${title}</h2>
+          <p>Type: ${type}</p>
+          <p>Studio: ${animeStudio.join(", ")}</p>
+          <p>Score: ${score}</p>
+          <p>Episodes Aired: ${episodes}</p>
+          <p>Status: ${status}</p>
+        </div>
+      </div>
+
+      <div class="detail-synopsis">
+        <h3>Sinopsis</h3>
+        <p>${synopsis}</p>
+      </div>
+    </div>
+
+    <div class="judul-container" style="margin-top: 1rem">
+      <h2>hello world</h2>
+    </div>
   </div>
   `;
 }
