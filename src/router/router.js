@@ -54,7 +54,7 @@ export function createRouter(container = document.querySelector('main')) {
       if (addToHistory)
         history.pushState({}, '', targetUrl);
 
-      console.log('saat ini berada di', currRoute);
+      // console.log('saat ini berada di', currRoute);
       renderRouter(route, container);
     }
   }
