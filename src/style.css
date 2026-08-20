@@ -23,25 +23,27 @@ html {
 /* VARIABEL */
 :root {
   /* Warna */
-  --base-color: #f6f7f9;
+  --base-color: #f0f7ff;
 
-  --logo-color: #f1f1f1;
-  --primary-color: #2e51a2;
-  --secondary-color: #4f74c8;
+  --logo-color: #0077b6;
+  --primary-color: #ffffff;
+  --secondary-color: #f8f9fa;
 
-  --btn-active-color: #4767b3;
+  --btn-active-color: #e2e8f0;
 
   --card-color: #ffffff;
 
-  --header-color: #1f2937;
-  --title-color: #387be7;
-  --text-color: #4b5563;
-  --muted-color: #c4c4c4;
+  --header-color: #03045e;
+  --title-color: #0077b6;
+  --text-color: #1d3557;
+  --muted-color: #90e0ef;
 
-  --accent-color: #f17300;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --border-color: #e5e7eb;
-  --half-transparent-color: rgba(255, 255, 255, 0.6);
+  --accent-color: #00b4d8;
+  --shadow-color: rgba(0, 119, 182, 0.15);
+  --border-color: #ade8f4;
+  --half-transparent-color: rgba(240, 247, 255, 0.8);
+
+
 
   /* Font Size */
   --font-logo: clamp(1.6rem, 2vw + 4px, 2rem);
@@ -87,7 +89,7 @@ img {
 }
 
 h1 {
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-size: var(--font-sz-lg);
 }
 
@@ -188,13 +190,14 @@ header {
   padding: var(--gap-sz-xs-r);
   min-width: 5rem;
   box-shadow: 0 2px 2px var(--shadow-color);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: var(--radius-md);
-  outline: none;
+  outline: 0 solid transparent;
   transition: outline .3s ease;
 
   &:focus {
-    outline: 2px solid var(--secondary-color);
+    outline: 2px solid var(--accent-color);
   }
 }
 
@@ -203,7 +206,7 @@ header {
   border: none;
   border-radius: var(--radius-md);
   box-shadow: 0 2px 2px var(--shadow-color);
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   color: var(--card-color);
   cursor: pointer;
   transition: transform .2s ease-in-out;
@@ -216,6 +219,7 @@ header {
     transform: translateY(0);
     background-color: var(--btn-active-color);
     box-shadow: 0 2px 5px var(--shadow-color);
+    color: var(--text-color);
   }
 }
 
@@ -292,6 +296,7 @@ header {
 }
 
 .icon svg {
+  fill: var(--text-color);
   width: 100%;
   height: 100%;
 }
