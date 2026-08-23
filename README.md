@@ -1,5 +1,4 @@
 # ANIVERSE Anime Search App
----
 
 ## Welcome
 Welcome To **AniVerse**.
