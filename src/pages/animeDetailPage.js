@@ -20,7 +20,6 @@ export default async function buildAnimeDetail(id) {
   } = animeData;
 
   const animeStudio = studios.map((studio) => studio.name);
-  const animeRelations = relations.map((relation) => {})
 
   console.log(animeData);
   // console.log(animeStudio)
@@ -28,7 +27,7 @@ export default async function buildAnimeDetail(id) {
   return `
   <div class="anime-container">
     <div class="judul-container">
-      <h2>Detail Anime ${id}</h2>
+      <h2>Detail Anime</h2>
     </div>
 
     <div class="detail-container">
@@ -51,10 +50,6 @@ export default async function buildAnimeDetail(id) {
         <h3>Sinopsis</h3>
         <p>${synopsis}</p>
       </div>
-    </div>
-
-    <div class="judul-container" style="margin-top: 1rem">
-      <h2>hello world</h2>
     </div>
   </div>
   `;

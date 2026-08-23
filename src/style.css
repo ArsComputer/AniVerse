@@ -181,7 +181,11 @@ header {
 .detail-container {
   padding: var(--gap-sz-sm);
   background-color: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sz-sm);
 }
+
 
 /* CHILDREN */
 .logo {
@@ -271,6 +275,15 @@ header {
   font-weight: bold;
 }
 
+.detail-head {
+  display: flex;
+  gap: var(--gap-sz-sm);
+}
+
+.detail__image {
+  max-width: 100px;
+}
+
 
 /* UTILITY */
 .muted {
@@ -340,6 +353,10 @@ header {
 
   .anime-card__image {
     max-width: 100%;
+  }
+
+  .detail__image {
+    max-width: 200px;
   }
 }
 
