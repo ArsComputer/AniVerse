@@ -48,8 +48,6 @@ const formCari = document.querySelector(".form-cari");
 const inputCari = document.querySelector("#input-cari");
 const btnCari = document.querySelector("#btn-cari");
 
-const daftarAnimeContainer = document.querySelector("#daftar-anime");
-
 const cariDebounce = debounce(searchAnime, 500);
 const btnController = btnDelay(btnCari, 10000);
 
@@ -58,11 +56,13 @@ let currentController;
 async function searchAnime(keyword) {
   if (!keyword || keyword.length <= 2) return;
 
+  const daftarAnimeContainer = document.querySelector("#daftar-anime");
+
   if (currentController) {
     currentController.abort();
   }
 
-  createLoadingState(daftarAnimeContainer, 'loading', 'muted', 'state');
+  createLoadingState(daftarAnimeContainer, "loading", "muted", "state");
 
   btnController.setDelay();
 
@@ -71,43 +71,47 @@ async function searchAnime(keyword) {
 
   try {
     const animeList = await getAnime(keyword, controller.signal);
-    console.log(animeList.data)
+    console.log(animeList.data);
 
     daftarAnimeContainer.innerHTML = "";
 
     if (animeList.data.length === 0) {
-      createEmptyState(daftarAnimeContainer, keyword, 'muted', 'state');
+      createEmptyState(daftarAnimeContainer, keyword, "muted", "state");
       return;
     }
 
     animeList.data.forEach((anime) => {
-      createAnimeCard(anime, daftarAnimeContainer, 'anime-card');
+      createAnimeCard(anime, daftarAnimeContainer, "anime-card");
     });
-
   } catch (error) {
     if (error.name === "AbortError") return;
 
     console.error("Gagal:", error);
     createErrorState(error.message, daftarAnimeContainer, "muted", "state");
   } finally {
-    if (currentController === controller)
-    btnController.clearDelay();
+    if (currentController === controller) btnController.clearDelay();
   }
 }
 
-inputCari.addEventListener('input', (e) => {
+inputCari.addEventListener("input", (e) => {
   e.preventDefault();
+
+  if (router.getRoute().type !== "home") return;
+
   cariDebounce.setDebounce(inputCari.value.trim());
 });
 
-formCari.addEventListener('submit', (e) => {
+formCari.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  router.navigateTo(router.getRoute("/AniVerse/"));
   cariDebounce.cancelDebounce(inputCari.value.trim());
 });
 
-const menuCari = document.getElementById('menu-cari');
-const cariWrapper = document.querySelector('.cari-wrapper');
+const menuCari = document.getElementById("menu-cari");
+const cariWrapper = document.querySelector(".cari-wrapper");
 
-menuCari.addEventListener('click', () => {
-  cariWrapper.classList.toggle('cari-open');
+menuCari.addEventListener("click", () => {
+  cariWrapper.classList.toggle("cari-open");
 });
+

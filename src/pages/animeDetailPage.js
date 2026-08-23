@@ -11,7 +11,7 @@ export default async function buildAnimeDetail(id) {
     type,
     studios,
     synopsis,
-    relations,
+    broadcast,
     images: {
       webp: {
         image_url
@@ -21,7 +21,7 @@ export default async function buildAnimeDetail(id) {
 
   const animeStudio = studios.map((studio) => studio.name);
 
-  console.log(animeData);
+  // console.log(animeData);
   // console.log(animeStudio)
 
   return `
@@ -38,11 +38,12 @@ export default async function buildAnimeDetail(id) {
 
         <div class="detail__info">
           <h2>${title}</h2>
-          <p>Type: ${type}</p>
-          <p>Studio: ${animeStudio.join(", ")}</p>
-          <p>Score: ${score}</p>
-          <p>Episodes Aired: ${episodes}</p>
-          <p>Status: ${status}</p>
+          <p><b>Type:</b> ${type}</p>
+          <p><b>Studio:</b> ${animeStudio.join(", ")}</p>
+          <p><b>Score:</b> ${score}</p>
+          <p><b>Episodes Aired:</b> ${episodes}</p>
+          <p><b>Status:</b> ${status}</p>
+          <p><b>Update:</b> ${broadcast.day}</p>
         </div>
       </div>
 

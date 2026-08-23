@@ -50,7 +50,7 @@ export function createRouter(container = document.querySelector('main')) {
       const targetUrl = route.targetUrl;
       currRoute = targetUrl;
 
-      console.log('navigating to', route);
+      // console.log('navigating to', route);
       if (addToHistory)
         history.pushState({}, '', targetUrl);
 

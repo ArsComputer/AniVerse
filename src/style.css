@@ -258,7 +258,7 @@ header {
 }
 
 .anime-card__image img {
-  background-color: var(--base-color);
+  background-color: var(--muted-color);
   aspect-ratio: 2 / 3;
   width: 100%;
   object-fit: cover;
@@ -302,6 +302,14 @@ header {
   left: 0;
 }
 
+.page-state {
+  padding: var(--gap-sz-xs);
+  border-radius: var(--radius);
+  background-color: var(--card-color);
+  box-shadow: 0 2px 2px var(--shadow-color);
+  text-align: center;
+}
+
 .icon {
   width: clamp(2.2rem, 2vw, 2.4rem);
   height: clamp(2.2rem, 2vw, 2.4rem);
@@ -328,6 +336,12 @@ header {
   border-right: 4px solid transparent;
 
   animation: spinner 1.2s ease-in-out infinite;
+}
+
+.loading--page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
