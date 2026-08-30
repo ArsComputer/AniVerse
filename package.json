@@ -9,8 +9,8 @@
     "build": "vite build",
     "build:gh": "vite build --base=/AniVerse/",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "npm run build:gh && gh-pages -d dist"
+    "predeploy": "npm run build:gh",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
