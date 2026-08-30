@@ -35,7 +35,7 @@ export function createRouter(container = document.querySelector('main')) {
         targetUrl: pathname,
       }
 
-      if (parts[1] === 'AniVerse' && !parts[2]) return {
+      if ((parts[1] === 'AniVerse' || parts[1] === '') && !parts[2]) return {
         type: 'home',
         targetUrl: pathname,
       }
